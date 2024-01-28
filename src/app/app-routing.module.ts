@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RecetaComponent } from './receta/pages/receta/receta.component';
 import { DashboardComponent } from './receta/pages/dashboard/dashboard.component';
+import { AddPageComponent } from './receta/pages/add-page/add-page.component';
 
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'recetas',
-    component: RecetaComponent
+    component: AddPageComponent
   }
 ];
 

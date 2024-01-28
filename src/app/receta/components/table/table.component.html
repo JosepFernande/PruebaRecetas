@@ -1,0 +1,18 @@
+<table class="table table-striped mt-2">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tutulo</th>
+      <th scope="col">Desciption</th>
+      <th scope="col">Ingredientes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let receta of recetaList">
+      <td data-label="#">{{receta.id}} </td>
+      <td data-label="Tutulo">{{receta.title}}</td>
+      <td data-label="Desciption">{{receta.description}}</td>
+      <td data-label="Ingredientes">...Ver mas</td>
+    </tr>
+  </tbody>
+</table>

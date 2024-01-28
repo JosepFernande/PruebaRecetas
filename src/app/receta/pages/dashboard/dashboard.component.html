@@ -1,11 +1,17 @@
 <h2>Buscar nombre de receta</h2>
 <hr>
-<div class="row">
-  <div class="col">
-    <!-- Buequeda -->
-    <receta-search-box
-      (value)="searchByCapital($event)"
-      placeholder="Buscar por Capital">
-    </receta-search-box>
-  </div>
+
+<div class="d-flex justify-content-center">
+  <!-- Buequeda -->
+  <receta-search-box class="w-75"
+    (value)="searchByCapital($event)"
+    placeholder="Buscar por Capital">
+  </receta-search-box>
+
 </div>
+
+<div class="mx-5">
+  <recesta-table [recetaList]="recetas"></recesta-table>
+</div>
+
+<shared-modal></shared-modal>

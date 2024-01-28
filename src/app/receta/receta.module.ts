@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { RecetaComponent } from './pages/receta/receta.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TableComponent } from './components/table/table.component';
+import { AddPageComponent } from './pages/add-page/add-page.component';
+import { AddIngredienteComponent } from './components/add-ingrediente/add-ingrediente.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -11,11 +15,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     SearchBoxComponent,
-    RecetaComponent,
-    DashboardComponent
+    DashboardComponent,
+    TableComponent,
+    AddPageComponent,
+    AddIngredienteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class RecetaModule { }
