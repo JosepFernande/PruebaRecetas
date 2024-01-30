@@ -13,7 +13,7 @@ export class TableComponent {
 
   public modalView: Modal = {
     title: '!Cuidado!',
-    description: '¿Desea elimiar permanente esta receta?',
+    description: '¿Desea eliminar permanente esta receta?',
     actionName: 'Confirmar'
   }
   private recetaId: number = 0

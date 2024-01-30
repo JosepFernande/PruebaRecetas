@@ -12,7 +12,7 @@ import { ModalComponent } from '../../../shared/components/modal/modal.component
 export class AddPageComponent {
 
   public modalView: Modal = {
-    title: '¡Exito!',
+    title: '¡Éxito!',
     description: 'Receta agregada de manera exitosa',
     actionName: 'Continuar'
   }

@@ -21,7 +21,7 @@
               </button>
             </div>
             <p>{{receta.description}}</p>
-            <a [routerLink]="['/receta/by',receta.id]">Ver mas</a>
+            <a [routerLink]="['/receta/by',receta.id]">Ver más</a>
           </div>
         </div>
 
@@ -38,7 +38,7 @@
               <p class="card-text">{{receta.description}} </p>
               <div class="justify-content-between d-flex">
                 <a [routerLink]="['/receta/by',receta.id]"
-                  class="btn btn-dark">Ver mas</a>
+                  class="btn btn-dark">Ver más</a>
                 <button class="btn btn-danger"
                   (click)="showModal(receta.id)">
                   X
