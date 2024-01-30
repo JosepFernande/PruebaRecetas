@@ -1,6 +1,9 @@
+<div class="d-flex justify-content-center">
+  <h3>Receta</h3>
+</div>
 <form (ngSubmit)="emitReceta()">
   <div class="d-flex justify-content-center w-100 mt-2">
-    <div class="w-50">
+    <div class="w-75">
       <div class="row">
         <div class="col">
           <label for="title">Titulo</label>
@@ -9,31 +12,38 @@
         </div>
         <div class="col">
           <label for="image">Imagen</label>
-          <input type="file" [(ngModel)]="receta.img" class="form-control"
+          <input type="file" (change)="getImage($event)"
+            class="form-control"
             id="image" name="image">
         </div>
       </div>
     </div>
   </div>
   <div class="d-flex justify-content-center w-100 mt-2">
-    <div class="w-50">
+    <div class="w-75">
       <label for="description">Descripcion</label>
       <textarea [(ngModel)]="receta.description" class="form-control"
         id="description" name="description"
         rows="5"></textarea>
     </div>
   </div>
-
   <div class="d-flex justify-content-center w-100 mt-2">
-    <div class="w-50">
+    <div class="w-75 my-2 border rounded border-dark p-2">
+      <receta-add-ingrediente
+        (onNewIngrediente)="onNewIngrediente($event)"></receta-add-ingrediente>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-end w-75 mt-2">
       <button type="submit" class="btn btn-primary">
         Agregar
       </button>
     </div>
   </div>
-
 </form>
 
-<div>
-  <receta-add-ingrediente></receta-add-ingrediente>
-</div>
+<shared-modal #modal (action)="redirectConfirm($event)"
+  [title]="modalView.title"
+  [description]="modalView.description"
+  [actionName]="modalView.actionName">
+</shared-modal>

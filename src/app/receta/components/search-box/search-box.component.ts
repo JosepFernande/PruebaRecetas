@@ -13,7 +13,6 @@ export class SearchBoxComponent {
   public value: EventEmitter<string> = new EventEmitter();
 
   emitValue(value?: string): void {
-    if (!value) return;
     this.value.emit(value);
   }
 

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './receta/pages/dashboard/dashboard.component';
 import { AddPageComponent } from './receta/pages/add-page/add-page.component';
+import { RecetaModule } from './receta/receta.module';
 
 
 const routes: Routes = [
@@ -13,6 +14,9 @@ const routes: Routes = [
   {
     path: 'recetas',
     component: AddPageComponent
+  }, {
+    path: 'receta',
+    loadChildren: () => import('./receta/receta.module').then(m => m.RecetaModule)
   }
 ];
 

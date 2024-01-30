@@ -13,3 +13,9 @@ export interface Ingrediente {
   state: boolean;
   quantity: number;
 }
+
+export interface Modal {
+  title: string,
+  description: string,
+  actionName: string
+}

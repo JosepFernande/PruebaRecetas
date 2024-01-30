@@ -1,1 +1,30 @@
-<p>add-ingrediente works!</p>
+<div class="d-flex justify-content-center">
+  <h3>Ingredientes</h3>
+</div>
+<div *ngFor="let ingrediente of ingredientes" class="row">
+  <div class="col">
+    <label for="title">Nombre</label>
+    <input type="text" [(ngModel)]="ingrediente.name" class="form-control"
+      placeholder="Nombre del ingrediente" id="title" name="title">
+  </div>
+  <div class="col">
+    <label for="title">Cantidad</label>
+    <input type="number" [(ngModel)]="ingrediente.quantity"
+      class="form-control"
+      placeholder="Cantidad" id="title" name="title">
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-between w-100 mt-2">
+    <button type="button" class="btn btn-success mt-2"
+      (click)="addIngrediente()">
+      Agregar
+    </button>
+
+    <button type="button" class="btn btn-danger mt-2"
+      (click)="revomeIngrediente()">
+      Eliminar
+    </button>
+  </div>
+</div>

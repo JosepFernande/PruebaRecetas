@@ -1,17 +1,28 @@
-<h2>Buscar nombre de receta</h2>
-<hr>
+<div>
+  <h2>Buscar nombre de receta</h2>
+  <hr>
 
-<div class="d-flex justify-content-center">
-  <!-- Buequeda -->
-  <receta-search-box class="w-75"
-    (value)="searchByCapital($event)"
-    placeholder="Buscar por Capital">
-  </receta-search-box>
+  <div class="d-flex justify-content-center mb-2">
+    <!-- Buequeda -->
+    <receta-search-box class="w-75"
+      (value)="searchByTitle($event)"
+      placeholder="Buscar por Titulo">
+    </receta-search-box>
 
+  </div>
+
+  <div class="mx-5"
+    *ngIf="recetas.length > 0 else se">
+    <recesta-table [recetaList]="recetas"></recesta-table>
+  </div>
 </div>
 
-<div class="mx-5">
-  <recesta-table [recetaList]="recetas"></recesta-table>
-</div>
+<ng-template #nothingWasDeleted>
+  <shared-alert-danger></shared-alert-danger>
+</ng-template>
 
-<shared-modal></shared-modal>
+<ng-template #se>
+  <div *ngIf="search != '' else nothingWasDeleted">
+    <shared-alert-warning></shared-alert-warning>
+  </div>
+</ng-template>

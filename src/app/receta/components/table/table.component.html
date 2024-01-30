@@ -1,18 +1,59 @@
-<table class="table table-striped mt-2">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Tutulo</th>
-      <th scope="col">Desciption</th>
-      <th scope="col">Ingredientes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let receta of recetaList">
-      <td data-label="#">{{receta.id}} </td>
-      <td data-label="Tutulo">{{receta.title}}</td>
-      <td data-label="Desciption">{{receta.description}}</td>
-      <td data-label="Ingredientes">...Ver mas</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let receta of recetaList
+    let isFirst = first;" [ngClass]="{
+      'col-sm': !isFirst}">
+
+      <div *ngIf="isFirst else otherReceta">
+        <div
+          class="row g-0 bg-light border border-dark rounded position-relative">
+          <div class="col-md-6 mb-md-0 p-md-4">
+            <img
+              [src]="isImage(receta.img)"
+              class="w-100" alt="...">
+          </div>
+          <div class="col-md-6 p-4 ps-md-0">
+            <div class="d-flex justify-content-between">
+              <h5 class="mt-0">{{receta.title}} </h5>
+              <button class="btn btn-danger"
+                (click)="showModal(receta.id)">
+                X
+              </button>
+            </div>
+            <p>{{receta.description}}</p>
+            <a [routerLink]="['/receta/by',receta.id]">Ver mas</a>
+          </div>
+        </div>
+
+      </div>
+
+      <ng-template #otherReceta>
+        <div class="col-sm">
+          <div class="card m-2" style="width: 18rem;">
+            <img
+              [src]="isImage(receta.img)"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{receta.title}}</h5>
+              <p class="card-text">{{receta.description}} </p>
+              <div class="justify-content-between d-flex">
+                <a [routerLink]="['/receta/by',receta.id]"
+                  class="btn btn-dark">Ver mas</a>
+                <button class="btn btn-danger"
+                  (click)="showModal(receta.id)">
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<shared-modal #modal (action)="confirm($event)"
+  [title]="modalView.title"
+  [description]="modalView.description"
+  [actionName]="modalView.actionName">
+</shared-modal>

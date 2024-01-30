@@ -8,6 +8,9 @@ import { TableComponent } from './components/table/table.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
 import { AddIngredienteComponent } from './components/add-ingrediente/add-ingrediente.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { ByRecetaIdComponent } from './pages/by-receta-id/by-receta-id.component';
+import { RecetaRoutingModule } from './receta-routing.module';
 
 
 
@@ -18,12 +21,15 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     TableComponent,
     AddPageComponent,
-    AddIngredienteComponent
+    AddIngredienteComponent,
+    ByRecetaIdComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    RouterModule,
+    RecetaRoutingModule
   ]
 })
 export class RecetaModule { }

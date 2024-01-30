@@ -1,0 +1,28 @@
+<div class="row g-0 bg-light  rounded position-relative">
+  <div class="col-md-6 mb-md-0 p-md-4">
+    <img
+      [src]="isImage(receta?.img!)"
+      alt="..." width="100%">
+  </div>
+  <div class="col-md-6 p-4 ps-md-0">
+
+    <h3 class="mt-0">{{receta?.title}} </h3>
+
+    <p>{{receta?.description}}</p>
+    <hr>
+    <div>
+      <h3>Ingredientes de la receta</h3>
+      <div *ngFor="let ingrediente of ingredientes">
+        <div class="list-group">
+          <label class="list-group-item"
+            [ngClass]="{'text-decoration-line-through': ingrediente.state, 'text-decoration-none': ingrediente.state}">
+            <input class="form-check-input me-1"
+              type="checkbox" #checked [checked]="ingrediente.state"
+              (click)="isChecked(ingrediente)">
+            <strong>{{ingrediente.quantity}}</strong> {{ingrediente.name}}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
